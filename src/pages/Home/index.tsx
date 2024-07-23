@@ -1,11 +1,7 @@
-import styled from "styled-components";
-
-const StyledTitle = styled.h1`
-  color: ${(props) => props.theme.colors.red};
-`;
+import NavBar from "src/components/NavBar";
 
 const Home = () => {
-  return <StyledTitle>Olá!</StyledTitle>;
+  return <NavBar />;
 };
 
 export default Home;
