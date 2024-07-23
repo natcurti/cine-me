@@ -7,6 +7,7 @@ export const NavBarStyled = styled.nav`
   align-items: center;
   justify-content: space-between;
   padding: 1.25rem;
+  border-bottom: 0.3rem solid ${(props) => props.theme.colors.mediumGray};
 `;
 
 export const ContainerStyled = styled.div`
