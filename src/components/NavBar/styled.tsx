@@ -12,6 +12,6 @@ export const NavBarStyled = styled.nav`
 
 export const ContainerStyled = styled.div`
   display: flex;
-  gap: ${(props) => props.theme.spacing.xs};
+  gap: ${(props) => props.theme.sizes.xs};
   align-items: center;
 `;

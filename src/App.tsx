@@ -6,8 +6,8 @@ import GlobalStyle from "./components/GlobalStyle";
 function App() {
   return (
     <BrowserRouter>
-      <GlobalStyle />
       <ProviderTheme>
+        <GlobalStyle />
         <Routes>
           <Route index element={<Home />} />
         </Routes>

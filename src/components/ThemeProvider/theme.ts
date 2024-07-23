@@ -17,15 +17,13 @@ export const theme = {
     bold: "'GilroyBold', 'sans-serif'",
     extraBold: "'GilroyExtraBold', 'sans-serif'",
   },
-  spacing: {
-    xs: "8px",
-    sm: "12px",
-    md: "16px",
-    lg: "24px",
-    xl: "32px",
-    xxl: "40px",
-    xxxl: "48px",
-    xxxxl: "56px",
-    xxxxxl: "64px",
+  sizes: {
+    xs: "0.5rem",
+    sm: "0.75rem",
+    md: "1rem",
+    lg: "1.5rem",
+    xl: "2rem",
+    xxl: "2.5rem",
+    xxxl: "3rem",
   },
 };

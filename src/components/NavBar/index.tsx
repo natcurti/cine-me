@@ -9,7 +9,7 @@ const NavBar = () => {
       <Logo />
       <ContainerStyled>
         <Search />
-        <Button>Entrar</Button>
+        <Button size="sm">Entrar</Button>
       </ContainerStyled>
     </NavBarStyled>
   );

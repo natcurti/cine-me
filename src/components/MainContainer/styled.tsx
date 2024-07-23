@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SectionStyled = styled.section`
-  height: 27.625rem;
+  height: 28rem;
   width: 100%;
   background-image: url("/background-cineme.jpg");
   position: relative;
@@ -20,4 +20,14 @@ export const SectionStyled = styled.section`
     );
     z-index: 1;
   }
+`;
+
+export const TypographyContainer = styled.div`
+  position: relative;
+  z-index: 100;
+  padding: 5.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-shadow: 3px 3px 4px rgba(24, 24, 24, 1);
 `;

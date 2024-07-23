@@ -1,7 +1,17 @@
-import { ButtonStyled } from "./styled";
+import { ButtonStyledLarge, ButtonStyledSmall } from "./styled";
 
-const Button = ({ children }: { children: React.ReactNode }) => {
-  return <ButtonStyled>{children}</ButtonStyled>;
+const Button = ({
+  size,
+  children,
+}: {
+  size: "lg" | "sm";
+  children: React.ReactNode;
+}) => {
+  if (size === "lg") {
+    return <ButtonStyledLarge>{children}</ButtonStyledLarge>;
+  }
+
+  return <ButtonStyledSmall>{children}</ButtonStyledSmall>;
 };
 
 export default Button;

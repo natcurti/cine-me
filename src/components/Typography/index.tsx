@@ -17,34 +17,34 @@ const elements = {
 
 const styles = {
   h1: `
-    font-family: "GilroyExtraBold",
-    font-size: 4rem,
-    line-height: 5.5rem
+    font-family: "GilroyExtraBold";
+    font-size: 2.25rem;
+    line-height: 2.5rem;
     `,
   h2: `
-    font-family: "GilroyBold",
-    font-size: 2.5rem,
-    line-height: 3rem
+    font-family: "GilroyBold";
+    font-size: 1.75rem;
+    line-height: 2rem;
     `,
   h3: `
-    font-family: "GilroyMedium",
-    font-size: 2.375rem,
-    line-height: 3rem
+    font-family: "GilroyMedium";
+    font-size: 1.5rem;
+    line-height: 2rem;
     `,
   h4: `
-    font-family: "GilroyRegular",
-    font-size: 2rem,
-    line-height: 2.5rem
+    font-family: "GilroyRegular";
+    font-size: 1.25rem;
+    line-height: 1.75rem;
     `,
   strong: `
-    font-family: "GilroyRegular",
-    font-size: 1.5rem,
-    line-height: 2rem
+    font-family: "GilroyRegular";
+    font-size: 1rem;
+    line-height: 1.5rem;
     `,
   p: `
-    font-family: "GilroyLight",
-    font-size: 1rem,
-    line-height: 1.5rem
+    font-family: "GilroyLight";
+    font-size: 0.85rem;
+    line-height: 1rem;
     `,
 };
 

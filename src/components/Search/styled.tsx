@@ -11,7 +11,7 @@ export const LabelTitle = styled.span`
 export const ContainerStyled = styled.div`
   display: flex;
   align-items: center;
-  gap: ${(props) => props.theme.spacing.xs};
+  gap: ${(props) => props.theme.sizes.xs};
 `;
 
 export const InputStyled = styled.input`

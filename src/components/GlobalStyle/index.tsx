@@ -37,6 +37,7 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         font-family: "GilroyRegular", sans-serif;
+        color: ${(props) => props.theme.colors.white}
     }
 `;
 
