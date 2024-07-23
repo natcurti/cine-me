@@ -6,6 +6,12 @@ export const ButtonStyledSmall = styled.button`
   padding: 0.1rem 0.65rem;
   border: none;
   height: ${(props) => props.theme.sizes.lg};
+  cursor: pointer;
+
+  @media (min-width: 768px) {
+    width: 100px;
+    height: ${(props) => props.theme.sizes.xl};
+  }
 `;
 
 export const ButtonStyledLarge = styled.button`
@@ -17,4 +23,5 @@ export const ButtonStyledLarge = styled.button`
   width: 40%;
   font-size: ${(props) => props.theme.sizes.md};
   font-family: ${(props) => props.theme.fontFamily.bold};
+  cursor: pointer;
 `;

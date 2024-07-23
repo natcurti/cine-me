@@ -13,12 +13,13 @@ export const SectionStyled = styled.section`
     height: 100%;
     top: 0;
     left: 0;
-    background: linear-gradient(
-      ${(props) => props.theme.colors.black},
-      transparent,
-      ${(props) => props.theme.colors.black}
-    );
+    background-color: ${(props) => props.theme.colors.black};
+    opacity: 0.7;
     z-index: 1;
+  }
+
+  @media (min-width: 768px) {
+    height: 33rem;
   }
 `;
 
@@ -30,4 +31,12 @@ export const TypographyContainer = styled.div`
   flex-direction: column;
   gap: 1rem;
   text-shadow: 3px 3px 4px rgba(24, 24, 24, 1);
+
+  @media (min-width: 540px) {
+    max-width: 540px;
+  }
+
+  @media (min-width: 768px) {
+    padding: 10.5rem 1.25rem;
+  }
 `;

@@ -21,6 +21,14 @@ export const InputStyled = styled.input`
   &:focus {
     outline-color: ${(props) => props.theme.colors.blue};
   }
+
+  @media (min-width: 768px) {
+    width: 10rem;
+  }
+
+  @media (min-width: 992px) {
+    width: 14rem;
+  }
 `;
 
 export const LabelStyled = styled.label`
