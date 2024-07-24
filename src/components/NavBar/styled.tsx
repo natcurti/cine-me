@@ -7,6 +7,7 @@ export const NavBarStyled = styled.nav`
   justify-content: space-between;
   padding: 1.25rem;
   border-bottom: 0.3rem solid ${(props) => props.theme.colors.mediumGray};
+  position: relative;
 
   @media (min-width: 768px) {
     position: absolute;
@@ -18,7 +19,7 @@ export const NavBarStyled = styled.nav`
   }
 `;
 
-export const ContainerStyled = styled.div`
+export const ContainerSearch = styled.div`
   display: flex;
   gap: ${(props) => props.theme.sizes.xs};
   align-items: center;
@@ -26,4 +27,9 @@ export const ContainerStyled = styled.div`
   @media (min-width: 768px) {
     gap: ${(props) => props.theme.sizes.lg};
   }
+`;
+
+export const ContainerItems = styled.div`
+  display: flex;
+  gap: ${(props) => props.theme.sizes.lg};
 `;

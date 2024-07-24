@@ -43,6 +43,10 @@ const GlobalStyle = createGlobalStyle`
     body {
         background-color: ${(props) => props.theme.colors.black};
     }
+
+    li {
+        list-style: none;
+    }
 `;
 
 export default GlobalStyle;

@@ -1,16 +1,20 @@
 import Button from "../Button";
 import Logo from "../Logo";
 import Search from "../Search";
-import { ContainerStyled, NavBarStyled } from "./styled";
+import MenuItems from "./MenuItems";
+import { ContainerSearch, NavBarStyled, ContainerItems } from "./styled";
 
 const NavBar = () => {
   return (
     <NavBarStyled>
-      <Logo />
-      <ContainerStyled>
+      <ContainerItems>
+        <Logo />
+        <MenuItems />
+      </ContainerItems>
+      <ContainerSearch>
         <Search />
         <Button size="sm">Entrar</Button>
-      </ContainerStyled>
+      </ContainerSearch>
     </NavBarStyled>
   );
 };
