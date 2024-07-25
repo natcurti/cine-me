@@ -1,18 +1,13 @@
-import Card from "src/components/Card";
 import MainContainer from "src/components/MainContainer";
 import NavBar from "src/components/NavBar";
-import { useMoviesContext } from "src/hooks/movies";
+import SectionCards from "src/components/SectionCards";
 
 const Home = () => {
-  const { popularMovies, error } = useMoviesContext();
-
-  console.log(popularMovies, error);
-
   return (
     <div>
       <NavBar />
       <MainContainer />
-      <Card />
+      <SectionCards />
     </div>
   );
 };

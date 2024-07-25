@@ -16,37 +16,39 @@ const elements = {
 };
 
 const styles = {
-  h1: `
-    font-family: "GilroyExtraBold";
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-    `,
-  h2: `
-    font-family: "GilroyBold";
-    font-size: 1.75rem;
-    line-height: 2rem;
-    `,
-  h3: `
-    font-family: "GilroyMedium";
-    font-size: 1.5rem;
-    line-height: 2rem;
-    `,
-  h4: `
-    font-family: "GilroyRegular";
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-    `,
-  strong: `
-    font-family: "GilroyBold";
-    font-size: 1rem;
-    line-height: 1.5rem;
-    `,
-  p: `
-    font-family: "GilroyLight";
-    font-size: 0.85rem;
-    line-height: 1rem;
-    `,
+  h1: {
+    fontFamily: "GilroyExtraBold",
+    fontSize: "2.25rem",
+    lineHeight: "2.5rem",
+  },
+  h2: {
+    fontFamily: "GilroyBold",
+    fontSize: "1.75rem",
+    lineHeight: "2rem",
+  },
+  h3: {
+    fontFamily: "GilroyMedium",
+    fontSize: "1.5rem",
+    lineHeight: "2rem",
+  },
+  h4: {
+    fontFamily: "GilroyRegular",
+    fontSize: "1.25rem",
+    lineHeight: "1.75rem",
+  },
+  strong: {
+    fontFamily: "GilroyBold",
+    fontSize: "1rem",
+    lineHeight: "1.5rem",
+  },
+  p: {
+    fontFamily: "GilroyLight",
+    fontSize: "0.85rem",
+    lineHeight: "1rem",
+  },
 };
+
+const HtmlTagStyled = styled.span``;
 
 const Typography = ({
   element = "p1",
@@ -54,11 +56,12 @@ const Typography = ({
   children,
 }: ITypography) => {
   const htmlTag = elements[element];
-  const HtmlTagStyled = styled(htmlTag)`
-    ${styles[variant]}
-  `;
 
-  return <HtmlTagStyled>{children}</HtmlTagStyled>;
+  return (
+    <HtmlTagStyled as={htmlTag} style={styles[variant]}>
+      {children}
+    </HtmlTagStyled>
+  );
 };
 
 export default Typography;

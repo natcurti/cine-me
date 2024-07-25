@@ -20,7 +20,7 @@ export const MoviesProvider = ({ children }: IMoviesProvider) => {
   useEffect(() => {
     http
       .get("/movie/popular?language=pt-BR")
-      .then((response) => setPopularMovies(response.data))
+      .then((response) => setPopularMovies(response.data.results))
       .catch((error) => setError(error.message));
   }, []);
 
