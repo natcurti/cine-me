@@ -1,15 +1,14 @@
 import { IMovie } from "src/interfaces/IMovie";
-import Typography from "../Typography";
-import { CardContainer, TitleContainer } from "./styled";
+import { CardContainer, ImageStyled } from "./styled";
 
 const Card = ({ movie }: { movie: IMovie }) => {
+  const image = import.meta.env.VITE_BASE_URL_IMAGES;
+
+  const imgPath = `${image}${movie.poster_path}`;
+
   return (
     <CardContainer>
-      <TitleContainer>
-        <Typography element="p1" variant="strong">
-          {movie.title}
-        </Typography>
-      </TitleContainer>
+      <ImageStyled src={imgPath} />
     </CardContainer>
   );
 };

@@ -3,12 +3,11 @@ import styled from "styled-components";
 export const CardContainer = styled.div`
   width: 6.25rem;
   height: 8.5rem;
-  padding-left: ${(props) => props.theme.sizes.xs};
-  background-color: deeppink;
-  position: relative;
+  border-radius: 0.15rem;
 `;
 
-export const TitleContainer = styled.span`
-  position: absolute;
-  bottom: ${(props) => props.theme.sizes.xs};
+export const ImageStyled = styled.img`
+  width: 6.25rem;
+  object-fit: cover;
+  border-radius: 0.15rem;
 `;
