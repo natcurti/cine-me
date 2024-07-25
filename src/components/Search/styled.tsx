@@ -35,3 +35,9 @@ export const LabelStyled = styled.label`
   display: grid;
   place-items: center;
 `;
+
+export const ButtonSearch = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+`;

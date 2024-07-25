@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-
 import GilroyLight from "src/assets/font/Gilroy-Light.woff2";
 import GilroyMedium from "src/assets/font/Gilroy-Medium.woff2";
 import GilroyRegular from "src/assets/font/Gilroy-Regular.woff2";
@@ -46,6 +45,10 @@ const GlobalStyle = createGlobalStyle`
 
     li {
         list-style: none;
+    }
+
+    a {
+        text-decoration: none;
     }
 `;
 

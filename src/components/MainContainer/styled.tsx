@@ -37,6 +37,6 @@ export const TypographyContainer = styled.div`
   }
 
   @media (min-width: 768px) {
-    padding: 10.5rem 1.25rem;
+    padding: 10.5rem 3rem;
   }
 `;

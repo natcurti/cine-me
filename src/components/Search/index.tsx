@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { SearchIcon } from "../Icons";
 import {
+  ButtonSearch,
   ContainerStyled,
   InputStyled,
   LabelStyled,
@@ -21,7 +22,9 @@ const Search = () => {
       )}
       <LabelStyled htmlFor="input-search" onClick={() => setShowInput(true)}>
         <LabelTitle>Busque por filmes e séries:</LabelTitle>
-        <SearchIcon />
+        <ButtonSearch>
+          <SearchIcon />
+        </ButtonSearch>
       </LabelStyled>
     </ContainerStyled>
   );

@@ -1,19 +1,40 @@
 import { HomeIcon, MoviesIcon, TvSeriesIcon } from "src/components/Icons";
-import MenuItem from "./MenuItem";
-import { ListStyled } from "./styled";
+import { ListStyled, SpanStyled } from "./styled";
+import { NavLink } from "react-router-dom";
 
 const MenuItems = () => {
   return (
     <ListStyled>
-      <MenuItem title="Início">
-        <HomeIcon color="#807E81" />
-      </MenuItem>
-      <MenuItem title="Filmes">
-        <MoviesIcon color="#807E81" />
-      </MenuItem>
-      <MenuItem title="Séries">
-        <TvSeriesIcon color="#807E81" />
-      </MenuItem>
+      <li>
+        <NavLink to="/">
+          {({ isActive }) => (
+            <SpanStyled $isActive={isActive}>
+              <HomeIcon color={isActive ? "#FFF" : "#807E81"} />
+              Início
+            </SpanStyled>
+          )}
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/movies">
+          {({ isActive }) => (
+            <SpanStyled $isActive={isActive}>
+              <MoviesIcon color={isActive ? "#FFF" : "#807E81"} />
+              Filmes
+            </SpanStyled>
+          )}
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/series">
+          {({ isActive }) => (
+            <SpanStyled $isActive={isActive}>
+              <TvSeriesIcon color={isActive ? "#FFF" : "#807E81"} />
+              Séries
+            </SpanStyled>
+          )}
+        </NavLink>
+      </li>
     </ListStyled>
   );
 };
