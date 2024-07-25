@@ -1,20 +1,18 @@
-import { useEffect } from "react";
+import Card from "src/components/Card";
 import MainContainer from "src/components/MainContainer";
 import NavBar from "src/components/NavBar";
-import { http } from "src/http/instance";
+import { useMoviesContext } from "src/hooks/movies";
 
 const Home = () => {
-  useEffect(() => {
-    http
-      .get("/movie/popular?language=pt-BR")
-      .then((response) => console.log(response.data))
-      .catch((error) => console.log(error));
-  }, []);
+  const { popularMovies, error } = useMoviesContext();
+
+  console.log(popularMovies, error);
 
   return (
     <div>
       <NavBar />
       <MainContainer />
+      <Card />
     </div>
   );
 };

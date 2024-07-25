@@ -37,7 +37,7 @@ const styles = {
     line-height: 1.75rem;
     `,
   strong: `
-    font-family: "GilroyRegular";
+    font-family: "GilroyBold";
     font-size: 1rem;
     line-height: 1.5rem;
     `,
