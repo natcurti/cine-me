@@ -9,16 +9,13 @@ import {
   MdOutlineKeyboardArrowLeft,
   MdKeyboardArrowRight,
 } from "react-icons/md";
-
 import Card from "../Card";
 import { useRef, useState } from "react";
 
 const Carousel = () => {
   const { popularMovies } = useMoviesContext();
   const carouselContainer = useRef<HTMLDivElement>(null);
-
   const [width, setWidth] = useState(0);
-
   const iconProps = {
     size: "30",
   };
@@ -30,7 +27,11 @@ const Carousel = () => {
   };
 
   const nextCards = () => {
-    if (carouselContainer.current) {
+    if (
+      carouselContainer.current &&
+      carouselContainer.current.offsetWidth !==
+        carouselContainer.current.scrollWidth
+    ) {
       setWidth(width + carouselContainer.current.offsetWidth);
     }
   };

@@ -1,22 +1,14 @@
 import styled from "styled-components";
 
-export const CardContainer = styled.div`
-  width: 6rem;
-  border-radius: 0.15rem;
-  display: grid;
-  place-items: center;
-
-  @media (min-width: 768px) {
-    width: 9.85rem;
-  }
-`;
-
 export const ImageStyled = styled.img`
-  width: 6rem;
-  object-fit: contain;
+  width: calc(33.333% - ${(props) => props.theme.sizes.xs});
   border-radius: 0.15rem;
 
+  @media (min-width: 540px) {
+    width: calc(25% - ${(props) => props.theme.sizes.xs});
+  }
+
   @media (min-width: 768px) {
-    width: 9.85rem;
+    width: calc(16.666% - ${(props) => props.theme.sizes.xs});
   }
 `;
