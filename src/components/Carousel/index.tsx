@@ -4,6 +4,7 @@ import {
   ButtonIconRight,
   CarouselContainer,
   ContainerCards,
+  SectionStyled,
 } from "./styled";
 import {
   MdOutlineKeyboardArrowLeft,
@@ -17,7 +18,7 @@ const Carousel = () => {
   const carouselContainer = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
   const iconProps = {
-    size: "30",
+    size: "40",
   };
 
   const prevCards = () => {
@@ -37,21 +38,23 @@ const Carousel = () => {
   };
 
   return (
-    <CarouselContainer ref={carouselContainer}>
-      {width > 0 && (
-        <ButtonIconLeft onClick={prevCards}>
-          <MdOutlineKeyboardArrowLeft {...iconProps} />
-        </ButtonIconLeft>
-      )}
-      <ContainerCards $width={width}>
-        {popularMovies.map((movie) => (
-          <Card movie={movie} key={movie.id} />
-        ))}
-      </ContainerCards>
-      <ButtonIconRight onClick={nextCards}>
-        <MdKeyboardArrowRight {...iconProps} />
-      </ButtonIconRight>
-    </CarouselContainer>
+    <SectionStyled>
+      <CarouselContainer ref={carouselContainer}>
+        {width > 0 && (
+          <ButtonIconLeft onClick={prevCards}>
+            <MdOutlineKeyboardArrowLeft {...iconProps} />
+          </ButtonIconLeft>
+        )}
+        <ContainerCards $width={width}>
+          {popularMovies.map((movie) => (
+            <Card movie={movie} key={movie.id} />
+          ))}
+        </ContainerCards>
+        <ButtonIconRight onClick={nextCards}>
+          <MdKeyboardArrowRight {...iconProps} />
+        </ButtonIconRight>
+      </CarouselContainer>
+    </SectionStyled>
   );
 };
 
