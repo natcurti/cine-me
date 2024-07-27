@@ -1,21 +1,14 @@
-import { useMoviesContext } from "src/hooks/movies";
-import Card from "../Card";
+import Carousel from "../Carousel";
 import Typography from "../Typography";
-import { ContainerCards, SectionStyled } from "./styled";
+import { SectionStyled } from "./styled";
 
 const SectionCards = () => {
-  const { popularMovies } = useMoviesContext();
-
   return (
     <SectionStyled>
-      <Typography element="h3" variant="h4">
+      <Typography element="h3" variant="h2">
         Populares
       </Typography>
-      <ContainerCards>
-        {popularMovies.map((movie) => (
-          <Card movie={movie} key={movie.id} />
-        ))}
-      </ContainerCards>
+      <Carousel />
     </SectionStyled>
   );
 };
