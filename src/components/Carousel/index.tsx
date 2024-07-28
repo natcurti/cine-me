@@ -1,4 +1,3 @@
-import { useMoviesContext } from "src/hooks/movies";
 import {
   ButtonIconLeft,
   ButtonIconRight,
@@ -12,9 +11,9 @@ import {
 } from "react-icons/md";
 import Card from "../Card";
 import { useRef, useState } from "react";
+import { IMovieAndTv } from "src/interfaces/IMovieAndTv";
 
-const Carousel = () => {
-  const { popularMovies } = useMoviesContext();
+const Carousel = ({ items }: { items: IMovieAndTv[] }) => {
   const carouselContainer = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
   const iconProps = {
@@ -46,8 +45,8 @@ const Carousel = () => {
           </ButtonIconLeft>
         )}
         <ContainerCards $width={width}>
-          {popularMovies.map((movie) => (
-            <Card movie={movie} key={movie.id} />
+          {items.map((itemToShow) => (
+            <Card itemToShow={itemToShow} key={itemToShow.id} />
           ))}
         </ContainerCards>
         <ButtonIconRight onClick={nextCards}>

@@ -1,12 +1,12 @@
 import { createContext, useEffect, useState } from "react";
 import { http } from "src/http/instance";
-import { IMovie } from "src/interfaces/IMovie";
+import { IMovieAndTv } from "src/interfaces/IMovieAndTv";
 
 interface IMoviesProvider {
   children: React.ReactNode;
 }
 
-const initialValue: IMovie[] = [];
+const initialValue: IMovieAndTv[] = [];
 
 export const MoviesContext = createContext({
   popularMovies: initialValue,
@@ -14,7 +14,7 @@ export const MoviesContext = createContext({
 });
 
 export const MoviesProvider = ({ children }: IMoviesProvider) => {
-  const [popularMovies, setPopularMovies] = useState<IMovie[]>([]);
+  const [popularMovies, setPopularMovies] = useState<IMovieAndTv[]>([]);
   const [error, setError] = useState("");
 
   useEffect(() => {

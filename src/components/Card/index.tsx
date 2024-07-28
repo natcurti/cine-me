@@ -1,11 +1,11 @@
-import { IMovie } from "src/interfaces/IMovie";
 import { ImageStyled } from "./styled";
 import { Link } from "react-router-dom";
+import { IMovieAndTv } from "src/interfaces/IMovieAndTv";
 
-const Card = ({ movie }: { movie: IMovie }) => {
+const Card = ({ itemToShow }: { itemToShow: IMovieAndTv }) => {
   const image = import.meta.env.VITE_BASE_URL_IMAGES;
 
-  const imgPath = `${image}${movie.poster_path}`;
+  const imgPath = `${image}${itemToShow.poster_path}`;
 
   return (
     <>

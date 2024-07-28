@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import GlobalStyle from "./components/GlobalStyle";
 import { MoviesProvider } from "./context/moviesContext";
 import DefaultPage from "./pages/DefaultPage";
+import { TvShowProvider } from "./context/tvShowContext";
 
 function App() {
   return (
@@ -11,11 +12,13 @@ function App() {
       <ProviderTheme>
         <GlobalStyle />
         <MoviesProvider>
-          <Routes>
-            <Route path="/" element={<DefaultPage />}>
-              <Route index element={<Home />} />
-            </Route>
-          </Routes>
+          <TvShowProvider>
+            <Routes>
+              <Route path="/" element={<DefaultPage />}>
+                <Route index element={<Home />} />
+              </Route>
+            </Routes>
+          </TvShowProvider>
         </MoviesProvider>
       </ProviderTheme>
     </BrowserRouter>

@@ -1,4 +1,4 @@
-export interface IMovie {
+export interface IMovieAndTv {
   id: number;
   genre_ids: number[];
   overview: string;
