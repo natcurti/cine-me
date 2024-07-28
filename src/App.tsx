@@ -3,6 +3,7 @@ import ProviderTheme from "./components/ThemeProvider";
 import Home from "./pages/Home";
 import GlobalStyle from "./components/GlobalStyle";
 import { MoviesProvider } from "./context/moviesContext";
+import DefaultPage from "./pages/DefaultPage";
 
 function App() {
   return (
@@ -11,7 +12,9 @@ function App() {
         <GlobalStyle />
         <MoviesProvider>
           <Routes>
-            <Route index element={<Home />} />
+            <Route path="/" element={<DefaultPage />}>
+              <Route index element={<Home />} />
+            </Route>
           </Routes>
         </MoviesProvider>
       </ProviderTheme>
