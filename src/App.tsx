@@ -5,6 +5,7 @@ import GlobalStyle from "./components/GlobalStyle";
 import { MoviesProvider } from "./context/moviesContext";
 import DefaultPage from "./pages/DefaultPage";
 import { TvShowProvider } from "./context/tvShowContext";
+import { UpcomingProvider } from "./context/upcomingContext";
 
 function App() {
   return (
@@ -13,11 +14,13 @@ function App() {
         <GlobalStyle />
         <MoviesProvider>
           <TvShowProvider>
-            <Routes>
-              <Route path="/" element={<DefaultPage />}>
-                <Route index element={<Home />} />
-              </Route>
-            </Routes>
+            <UpcomingProvider>
+              <Routes>
+                <Route path="/" element={<DefaultPage />}>
+                  <Route index element={<Home />} />
+                </Route>
+              </Routes>
+            </UpcomingProvider>
           </TvShowProvider>
         </MoviesProvider>
       </ProviderTheme>
