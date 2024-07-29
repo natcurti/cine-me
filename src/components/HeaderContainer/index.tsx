@@ -1,10 +1,10 @@
 import Button from "../Button";
 import Typography from "../Typography";
-import { SectionStyled, TypographyContainer } from "./styled";
+import { HeaderStyled, TypographyContainer } from "./styled";
 
-const MainContainer = () => {
+const HeaderContainer = () => {
   return (
-    <SectionStyled>
+    <HeaderStyled>
       <TypographyContainer>
         <Typography element="h2" variant="h2">
           Bem vindo ao Cine.me
@@ -18,8 +18,8 @@ const MainContainer = () => {
         </Typography>
         <Button size="lg">Cadastre-se!</Button>
       </TypographyContainer>
-    </SectionStyled>
+    </HeaderStyled>
   );
 };
 
-export default MainContainer;
+export default HeaderContainer;

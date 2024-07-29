@@ -1,4 +1,4 @@
-export interface IMovieAndTv {
+export interface IStreamingItem {
   id: number;
   genre_ids: number[];
   overview: string;

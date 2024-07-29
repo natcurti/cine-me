@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const SectionStyled = styled.section`
+export const HeaderStyled = styled.header`
   height: 28rem;
   width: 100%;
   background-image: url("/background-cineme.jpg");
