@@ -7,6 +7,7 @@ import DefaultPage from "./pages/DefaultPage";
 import { TvShowProvider } from "./context/tvShowContext";
 import { UpcomingProvider } from "./context/upcomingContext";
 import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
                   <Route index element={<Home />} />
                 </Route>
                 <Route path="/cadastro" element={<Register />} />
+                <Route path="/login" element={<Login />} />
               </Routes>
             </UpcomingProvider>
           </TvShowProvider>

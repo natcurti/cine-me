@@ -2,7 +2,7 @@ import FormContainer from "src/components/FormContainer";
 import {
   ContainerInputs,
   ContainerName,
-  MainRegister,
+  MainContainer,
   TypographyContainer,
 } from "./styled";
 import Typography from "src/components/Typography";
@@ -79,7 +79,7 @@ const Register = () => {
   }, [isSubmitSuccessful, reset]);
 
   return (
-    <MainRegister>
+    <MainContainer>
       <FormContainer onSubmit={handleSubmit(onSubmit)}>
         <TypographyContainer>
           <Typography element="h1" variant="strong">
@@ -147,7 +147,7 @@ const Register = () => {
           </Button>
         </ContainerInputs>
       </FormContainer>
-    </MainRegister>
+    </MainContainer>
   );
 };
 

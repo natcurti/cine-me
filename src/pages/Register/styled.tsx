@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MainRegister = styled.main`
+export const MainContainer = styled.main`
   background-image: url("/background-cineme.jpg");
   width: 100%;
   min-height: 100vh;
