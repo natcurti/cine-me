@@ -1,8 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../Button";
 import Typography from "../Typography";
 import { HeaderStyled, TypographyContainer } from "./styled";
 
 const HeaderContainer = () => {
+  const navigate = useNavigate();
+
   return (
     <HeaderStyled>
       <TypographyContainer>
@@ -16,7 +19,9 @@ const HeaderContainer = () => {
           Acesse milhares de histórias incríveis para maratonar quando e onde
           você quiser
         </Typography>
-        <Button size="lg">Cadastre-se!</Button>
+        <Button size="lg" onClick={() => navigate("/cadastro")}>
+          Cadastre-se!
+        </Button>
       </TypographyContainer>
     </HeaderStyled>
   );

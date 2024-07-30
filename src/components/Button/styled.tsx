@@ -25,7 +25,7 @@ export const ButtonStyledLarge = styled.button`
   padding: 0.1rem 0.65rem;
   border: none;
   height: ${(props) => props.theme.sizes.xxxl};
-  width: 40%;
+  width: 100%;
   font-size: ${(props) => props.theme.sizes.md};
   font-family: ${(props) => props.theme.fontFamily.bold};
   cursor: pointer;
