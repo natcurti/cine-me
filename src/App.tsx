@@ -8,6 +8,7 @@ import { TvShowProvider } from "./context/tvShowContext";
 import { UpcomingProvider } from "./context/upcomingContext";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import MovieDetails from "./pages/MovieDetails";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<DefaultPage />}>
                   <Route index element={<Home />} />
+                  <Route path="/filmes/:id" element={<MovieDetails />} />
                 </Route>
                 <Route path="/cadastro" element={<Register />} />
                 <Route path="/login" element={<Login />} />

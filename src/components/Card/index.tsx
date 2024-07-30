@@ -2,14 +2,26 @@ import { IStreamingItem } from "src/interfaces/IStreamingItem";
 import { ImageStyled } from "./styled";
 import { Link } from "react-router-dom";
 
-const Card = ({ itemToShow }: { itemToShow: IStreamingItem }) => {
+const Card = ({
+  itemToShow,
+  type,
+}: {
+  itemToShow: IStreamingItem;
+  type: "movie" | "serie";
+}) => {
   const image = import.meta.env.VITE_BASE_URL_IMAGES;
 
   const imgPath = `${image}${itemToShow.poster_path}`;
 
   return (
     <>
-      <Link to="">
+      <Link
+        to={`${
+          type === "movie"
+            ? `/filmes/${itemToShow.id}`
+            : `/series/${itemToShow.id}`
+        }`}
+      >
         <ImageStyled src={imgPath} />
       </Link>
     </>

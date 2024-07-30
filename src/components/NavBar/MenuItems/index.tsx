@@ -16,7 +16,7 @@ const MenuItems = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/movies">
+        <NavLink to="/filmes">
           {({ isActive }) => (
             <SpanStyled $isActive={isActive}>
               <MoviesIcon color={isActive ? "#FFF" : "#807E81"} />

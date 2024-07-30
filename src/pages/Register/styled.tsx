@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MainContainer = styled.main`
-  background-image: url("/background-cineme.jpg");
+  background-image: url("/background-cineme-form-page.jpg");
   width: 100%;
   min-height: 100vh;
   position: relative;

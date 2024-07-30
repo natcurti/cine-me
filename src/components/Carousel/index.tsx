@@ -12,7 +12,13 @@ import Card from "../Card";
 import { useRef, useState } from "react";
 import { IStreamingItem } from "src/interfaces/IStreamingItem";
 
-const Carousel = ({ items }: { items: IStreamingItem[] }) => {
+const Carousel = ({
+  items,
+  type,
+}: {
+  items: IStreamingItem[];
+  type: "movie" | "serie";
+}) => {
   const carouselContainer = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
   const iconProps = {
@@ -44,7 +50,7 @@ const Carousel = ({ items }: { items: IStreamingItem[] }) => {
       )}
       <ContainerCards $width={width}>
         {items.map((itemToShow) => (
-          <Card itemToShow={itemToShow} key={itemToShow.id} />
+          <Card itemToShow={itemToShow} key={itemToShow.id} type={type} />
         ))}
       </ContainerCards>
       <ButtonIconRight onClick={nextCards}>

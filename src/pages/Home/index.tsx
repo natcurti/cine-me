@@ -34,7 +34,7 @@ const Home = () => {
           <Spinner />
         ) : (
           <>
-            <Section items={popularMovies}>
+            <Section items={popularMovies} type="movie">
               <Typography element="h3" variant="h3">
                 Filmes mais populares
               </Typography>
@@ -44,7 +44,7 @@ const Home = () => {
                 </Typography>
               )}
             </Section>
-            <Section items={popularTvShow}>
+            <Section items={popularTvShow} type="serie">
               <Typography element="h3" variant="h3">
                 Séries para você
               </Typography>
@@ -54,7 +54,7 @@ const Home = () => {
                 </Typography>
               )}
             </Section>
-            <Section items={upcomingMovies}>
+            <Section items={upcomingMovies} type="movie">
               <Typography element="h3" variant="h3">
                 Em breve
               </Typography>

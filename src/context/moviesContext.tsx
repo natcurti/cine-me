@@ -21,7 +21,7 @@ export const MoviesProvider = ({ children }: IMoviesProvider) => {
 
   useEffect(() => {
     http
-      .get("/movie/popular?language=pt-BR")
+      .get("/movie/popular?language=pt-BR&include_videos=true")
       .then((response) => setPopularMovies(response.data.results))
       .catch((error) => setError(error.message))
       .finally(() => setIsLoading(false));
