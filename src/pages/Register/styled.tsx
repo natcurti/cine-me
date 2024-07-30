@@ -33,7 +33,7 @@ export const ContainerName = styled.div`
   justify-content: space-between;
 
   div {
-    width: 50%;
+    width: 100%;
   }
 `;
 

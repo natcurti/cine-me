@@ -37,3 +37,13 @@ export const SpanIcon = styled.span`
   left: 0.25rem;
   display: flex;
 `;
+
+export const PasswordIcon = styled.button`
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0.5rem;
+  display: flex;
+`;

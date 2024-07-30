@@ -1,8 +1,13 @@
 import { FormStyled, HeaderForm } from "./styled";
 
-const FormContainer = ({ children }: { children: React.ReactNode }) => {
+interface IFormContainer {
+  onSubmit: () => void;
+  children: React.ReactNode;
+}
+
+const FormContainer = ({ onSubmit, children }: IFormContainer) => {
   return (
-    <FormStyled>
+    <FormStyled onSubmit={onSubmit} noValidate>
       <HeaderForm>
         <img src="logo-cine-me.png" alt="Logo Cine.me" />
       </HeaderForm>
