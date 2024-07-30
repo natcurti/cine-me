@@ -18,25 +18,30 @@ import ErrorMessage from "src/components/ErrorMessage";
 import { formatName } from "src/utils/formatName";
 import { useEffect } from "react";
 
-const schema = z.object({
-  name: z
-    .string()
-    .min(3, "Digite um nome válido")
-    .transform((value) => formatName(value)),
-  lastname: z
-    .string()
-    .min(3, "Digite um sobrenome válido")
-    .transform((value) => formatName(value)),
-  email: z
-    .string()
-    .min(1, "Campo obrigatório")
-    .email("Digite um email válido")
-    .transform((value) => value.toLocaleLowerCase()),
-  password: z.string().min(5, "A senha deve conter no mínimo 5 caracteres"),
-  passwordRepeat: z
-    .string()
-    .min(5, "A senha deve conter no mínimo 5 caracteres"),
-});
+const schema = z
+  .object({
+    name: z
+      .string()
+      .min(3, "Digite um nome válido")
+      .transform((value) => formatName(value)),
+    lastname: z
+      .string()
+      .min(3, "Digite um sobrenome válido")
+      .transform((value) => formatName(value)),
+    email: z
+      .string()
+      .min(1, "Campo obrigatório")
+      .email("Digite um email válido")
+      .transform((value) => value.toLocaleLowerCase()),
+    password: z.string().min(5, "A senha deve conter no mínimo 5 caracteres"),
+    passwordRepeat: z
+      .string()
+      .min(5, "A senha deve conter no mínimo 5 caracteres"),
+  })
+  .refine((values) => values.password === values.passwordRepeat, {
+    message: "As senhas não coincidem",
+    path: ["passwordRepeat"],
+  });
 
 type FormValues = z.infer<typeof schema>;
 
