@@ -39,7 +39,7 @@ const Input = <T extends FieldValues>({
           id={name}
           placeholder={label}
           {...register(name)}
-          type={showPassword ? "text" : "password"}
+          type={isPasswordInput && !showPassword ? "password" : "text"}
         />
         <SpanIcon>{children}</SpanIcon>
         {isPasswordInput && (

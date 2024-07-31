@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { http } from "src/http/instance";
+import { http_tmdb } from "src/http/http-tmdb";
 import { IStreamingItem } from "src/interfaces/IStreamingItem";
 
 interface ITvShowProvider {
@@ -20,7 +20,7 @@ export const TvShowProvider = ({ children }: ITvShowProvider) => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    http
+    http_tmdb
       .get("/tv/popular?language=pt-BR")
       .then((response) => setPopularTvShow(response.data.results))
       .catch((error) => setError(error.message))

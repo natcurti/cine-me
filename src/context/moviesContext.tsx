@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { http } from "src/http/instance";
+import { http_tmdb } from "src/http/http-tmdb";
 import { IStreamingItem } from "src/interfaces/IStreamingItem";
 
 interface IMoviesProvider {
@@ -20,7 +20,7 @@ export const MoviesProvider = ({ children }: IMoviesProvider) => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    http
+    http_tmdb
       .get("/movie/popular?language=pt-BR&include_videos=true")
       .then((response) => setPopularMovies(response.data.results))
       .catch((error) => setError(error.message))

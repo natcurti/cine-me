@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { http } from "src/http/instance";
+import { http_tmdb } from "src/http/http-tmdb";
 import { IStreamingItem } from "src/interfaces/IStreamingItem";
 
 interface IUpcomingProvider {
@@ -20,7 +20,7 @@ export const UpcomingProvider = ({ children }: IUpcomingProvider) => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    http
+    http_tmdb
       .get("/movie/upcoming?language=pt-BR")
       .then((response) => setPopularMovies(response.data.results))
       .catch((error) => setError(error.message))

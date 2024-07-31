@@ -10,6 +10,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import MovieDetails from "./pages/MovieDetails";
 import { UserContextProvider } from "./context/userContext";
+import { SessionProvider } from "./context/sessionContext";
 
 function App() {
   return (
@@ -20,14 +21,16 @@ function App() {
           <TvShowProvider>
             <UpcomingProvider>
               <UserContextProvider>
-                <Routes>
-                  <Route path="/" element={<DefaultPage />}>
-                    <Route index element={<Home />} />
-                    <Route path="/filmes/:id" element={<MovieDetails />} />
-                  </Route>
-                  <Route path="/cadastro" element={<Register />} />
-                  <Route path="/login" element={<Login />} />
-                </Routes>
+                <SessionProvider>
+                  <Routes>
+                    <Route path="/" element={<DefaultPage />}>
+                      <Route index element={<Home />} />
+                      <Route path="/filmes/:id" element={<MovieDetails />} />
+                    </Route>
+                    <Route path="/cadastro" element={<Register />} />
+                    <Route path="/login" element={<Login />} />
+                  </Routes>
+                </SessionProvider>
               </UserContextProvider>
             </UpcomingProvider>
           </TvShowProvider>

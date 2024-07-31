@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { http } from "src/http/instance";
+import { http_tmdb } from "src/http/http-tmdb";
 import { IGenre } from "src/interfaces/IGenre";
 
 const initialValue: IGenre[] = [];
@@ -14,13 +14,13 @@ const GenreProvider = ({ children }: { children: React.ReactNode }) => {
   const [tvGenres, setTvGenres] = useState<IGenre[]>([]);
 
   useEffect(() => {
-    http
+    http_tmdb
       .get("/genre/movie/list")
       .then((response) => setMoviesGenres(response.data.genres));
   }, []);
 
   useEffect(() => {
-    http
+    http_tmdb
       .get("/genre/tv/list")
       .then((response) => setTvGenres(response.data.genres));
   }, []);

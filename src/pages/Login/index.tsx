@@ -13,6 +13,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ErrorMessage from "src/components/ErrorMessage";
+import { useSessionContext } from "src/hooks/custom";
 
 const schema = z.object({
   email: z
@@ -39,13 +40,15 @@ const Login = () => {
     resolver: zodResolver(schema),
   });
 
+  const { login } = useSessionContext();
+
   const iconProps = {
     fill: "#1884F7",
     size: 20,
   };
 
   const onSubmit = (values: FormValues) => {
-    console.log(values);
+    login(values.email, values.password);
   };
 
   return (

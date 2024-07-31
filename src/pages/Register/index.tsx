@@ -18,6 +18,8 @@ import ErrorMessage from "src/components/ErrorMessage";
 import { formatName } from "src/utils/formatName";
 import { useEffect } from "react";
 import { useUserContext } from "src/hooks/custom";
+import { http_auth } from "src/http/http-auth";
+import { useNavigate } from "react-router-dom";
 
 const schema = z
   .object({
@@ -67,6 +69,8 @@ const Register = () => {
   const { setName, setLastname, setEmail, setPassword, setPasswordRepeat } =
     useUserContext();
 
+  const navigate = useNavigate();
+
   const iconProps = {
     fill: "#1884F7",
     size: 20,
@@ -78,6 +82,15 @@ const Register = () => {
     setEmail(values.email);
     setPassword(values.password);
     setPasswordRepeat(values.passwordRepeat);
+
+    http_auth
+      .post("/users", {
+        name: values.name,
+        email: values.email,
+        password: values.password,
+      })
+      .then(() => navigate("/"))
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {
