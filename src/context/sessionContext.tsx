@@ -4,8 +4,16 @@ import { useNavigate } from "react-router-dom";
 import { http_auth } from "src/http/http-auth";
 import { StoreToken } from "src/utils/StoreToken";
 
-export const SessionContext = createContext({
+interface ISessionContext {
+  isLoggedIn: boolean;
+  setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+  login: (_email: string, _password: string) => void;
+  error: string;
+}
+
+export const SessionContext = createContext<ISessionContext>({
   isLoggedIn: false,
+  setIsLoggedIn: () => {},
   login: (_email: string, _password: string) => {},
   error: "",
 });
@@ -32,7 +40,9 @@ export const SessionProvider = ({
   };
 
   return (
-    <SessionContext.Provider value={{ isLoggedIn, login, error }}>
+    <SessionContext.Provider
+      value={{ isLoggedIn, setIsLoggedIn, login, error }}
+    >
       {children}
     </SessionContext.Provider>
   );
