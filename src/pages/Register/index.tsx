@@ -16,7 +16,6 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ErrorMessage from "src/components/ErrorMessage";
 import { formatName } from "src/utils/formatName";
-import { useEffect } from "react";
 import { useUserContext } from "src/hooks/custom";
 import { http_auth } from "src/http/http-auth";
 import { useNavigate } from "react-router-dom";
@@ -52,8 +51,7 @@ const Register = () => {
   const {
     register,
     handleSubmit,
-    reset,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors },
   } = useForm<FormValues>({
     defaultValues: {
       name: "",
@@ -92,12 +90,6 @@ const Register = () => {
       .then(() => navigate("/"))
       .catch((err) => console.log(err));
   };
-
-  useEffect(() => {
-    if (isSubmitSuccessful) {
-      reset();
-    }
-  }, [isSubmitSuccessful, reset]);
 
   return (
     <MainContainer>

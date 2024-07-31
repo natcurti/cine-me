@@ -40,7 +40,7 @@ const Login = () => {
     resolver: zodResolver(schema),
   });
 
-  const { login } = useSessionContext();
+  const { login, error } = useSessionContext();
 
   const iconProps = {
     fill: "#1884F7",
@@ -85,6 +85,7 @@ const Login = () => {
             Entrar
           </Button>
         </ContainerInputs>
+        {error && <ErrorMessage>{error}</ErrorMessage>}
       </FormContainer>
     </MainContainer>
   );

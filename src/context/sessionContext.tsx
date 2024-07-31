@@ -1,10 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { http_auth } from "src/http/http-auth";
+import { StoreToken } from "src/utils/StoreToken";
 
 export const SessionContext = createContext({
   isLoggedIn: false,
   login: (_email: string, _password: string) => {},
+  error: "",
 });
 
 export const SessionProvider = ({
@@ -13,6 +16,8 @@ export const SessionProvider = ({
   children: React.ReactNode;
 }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const login = (email: string, password: string) => {
     http_auth
@@ -20,13 +25,14 @@ export const SessionProvider = ({
         email,
         password,
       })
-      .then((response) => console.log(response))
+      .then((response) => StoreToken.setToken(response.data.token))
       .then(() => setIsLoggedIn(true))
-      .catch((err) => console.log(err));
+      .then(() => navigate("/"))
+      .catch((err) => setError(err.response.data.message));
   };
 
   return (
-    <SessionContext.Provider value={{ isLoggedIn, login }}>
+    <SessionContext.Provider value={{ isLoggedIn, login, error }}>
       {children}
     </SessionContext.Provider>
   );
