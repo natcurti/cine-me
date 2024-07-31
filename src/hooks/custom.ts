@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { MoviesContext } from "src/context/moviesContext";
 import { TvShowContext } from "src/context/tvShowContext";
 import { UpcomingContext } from "src/context/upcomingContext";
+import { UserContext } from "src/context/userContext";
 
 export const useMoviesContext = () => {
   return useContext(MoviesContext);
@@ -13,4 +14,8 @@ export const useTvShowContext = () => {
 
 export const useUpcomingContext = () => {
   return useContext(UpcomingContext);
+};
+
+export const useUserContext = () => {
+  return useContext(UserContext);
 };

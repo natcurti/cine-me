@@ -17,6 +17,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import ErrorMessage from "src/components/ErrorMessage";
 import { formatName } from "src/utils/formatName";
 import { useEffect } from "react";
+import { useUserContext } from "src/hooks/custom";
 
 const schema = z
   .object({
@@ -63,13 +64,20 @@ const Register = () => {
     resolver: zodResolver(schema),
   });
 
+  const { setName, setLastname, setEmail, setPassword, setPasswordRepeat } =
+    useUserContext();
+
   const iconProps = {
     fill: "#1884F7",
     size: 20,
   };
 
   const onSubmit = (values: FormValues) => {
-    console.log(values);
+    setName(values.name);
+    setLastname(values.lastname);
+    setEmail(values.email);
+    setPassword(values.password);
+    setPasswordRepeat(values.passwordRepeat);
   };
 
   useEffect(() => {

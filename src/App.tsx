@@ -9,6 +9,7 @@ import { UpcomingProvider } from "./context/upcomingContext";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import MovieDetails from "./pages/MovieDetails";
+import { UserContextProvider } from "./context/userContext";
 
 function App() {
   return (
@@ -18,14 +19,16 @@ function App() {
         <MoviesProvider>
           <TvShowProvider>
             <UpcomingProvider>
-              <Routes>
-                <Route path="/" element={<DefaultPage />}>
-                  <Route index element={<Home />} />
-                  <Route path="/filmes/:id" element={<MovieDetails />} />
-                </Route>
-                <Route path="/cadastro" element={<Register />} />
-                <Route path="/login" element={<Login />} />
-              </Routes>
+              <UserContextProvider>
+                <Routes>
+                  <Route path="/" element={<DefaultPage />}>
+                    <Route index element={<Home />} />
+                    <Route path="/filmes/:id" element={<MovieDetails />} />
+                  </Route>
+                  <Route path="/cadastro" element={<Register />} />
+                  <Route path="/login" element={<Login />} />
+                </Routes>
+              </UserContextProvider>
             </UpcomingProvider>
           </TvShowProvider>
         </MoviesProvider>
