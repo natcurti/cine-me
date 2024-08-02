@@ -9,13 +9,21 @@ import {
   ListItemStyled,
 } from "./styled";
 import { useState } from "react";
-import { useUserContext } from "src/hooks/custom";
+import { useSessionContext, useUserContext } from "src/hooks/custom";
 import Typography from "../Typography";
 import { Link } from "react-router-dom";
+import { StoreToken } from "src/utils/StoreToken";
 
 const MenuLoggedIn = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { user } = useUserContext();
+  const { setIsLoggedIn } = useSessionContext();
+  const { user, setName } = useUserContext();
+
+  const logout = () => {
+    StoreToken.deleteToken();
+    setIsLoggedIn(false);
+    setName("");
+  };
 
   return (
     <>
@@ -42,7 +50,7 @@ const MenuLoggedIn = () => {
             </ListItemStyled>
           </ul>
           <FooterMenu>
-            <ButtonLogout>Sair</ButtonLogout>
+            <ButtonLogout onClick={logout}>Sair</ButtonLogout>
           </FooterMenu>
         </ContainerMenu>
       </ContainerBackdrop>
