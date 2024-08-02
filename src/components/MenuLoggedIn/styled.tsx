@@ -5,9 +5,9 @@ export const ButtonMenu = styled.button`
   border: none;
 `;
 
-export const ContainerBackdrop = styled.div`
+export const ContainerBackdrop = styled.div<{ $isOpen: boolean }>`
   position: fixed;
-  width: 100%;
+  width: ${(props) => (props.$isOpen ? "100%" : 0)};
   height: 100vh;
   top: 0;
   right: 0;

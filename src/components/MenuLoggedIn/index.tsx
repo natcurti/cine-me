@@ -19,35 +19,33 @@ const MenuLoggedIn = () => {
 
   return (
     <>
-      <ButtonMenu onClick={() => setIsOpen(true)}>
+      <ButtonMenu onClick={() => setIsOpen(!isOpen)}>
         <FaUserCircle size={30} />
       </ButtonMenu>
-      {isOpen && (
-        <ContainerBackdrop onClick={() => setIsOpen(false)}>
-          <ContainerMenu $isOpen={isOpen}>
-            <HeaderMenu>
-              <FaUserCircle size={30} />
-              <Typography element="h4" variant="h4">
-                {user.name}
-              </Typography>
-            </HeaderMenu>
-            <ul>
-              <ListItemStyled>
-                <Link to="">Configurações</Link>
-              </ListItemStyled>
-              <ListItemStyled>
-                <Link to="">Conta</Link>
-              </ListItemStyled>
-              <ListItemStyled>
-                <Link to="">Assinatura</Link>
-              </ListItemStyled>
-            </ul>
-            <FooterMenu>
-              <ButtonLogout>Sair</ButtonLogout>
-            </FooterMenu>
-          </ContainerMenu>
-        </ContainerBackdrop>
-      )}
+      <ContainerBackdrop onClick={() => setIsOpen(!isOpen)} $isOpen={isOpen}>
+        <ContainerMenu $isOpen={isOpen}>
+          <HeaderMenu>
+            <FaUserCircle size={30} />
+            <Typography element="h4" variant="h4">
+              {user.name}
+            </Typography>
+          </HeaderMenu>
+          <ul>
+            <ListItemStyled>
+              <Link to="">Configurações</Link>
+            </ListItemStyled>
+            <ListItemStyled>
+              <Link to="">Conta</Link>
+            </ListItemStyled>
+            <ListItemStyled>
+              <Link to="">Assinatura</Link>
+            </ListItemStyled>
+          </ul>
+          <FooterMenu>
+            <ButtonLogout>Sair</ButtonLogout>
+          </FooterMenu>
+        </ContainerMenu>
+      </ContainerBackdrop>
     </>
   );
 };
