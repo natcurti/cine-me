@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { GenreContext } from "src/context/genreContext";
 import { MoviesContext } from "src/context/moviesContext";
 import { SessionContext } from "src/context/sessionContext";
 import { TvShowContext } from "src/context/tvShowContext";
@@ -23,4 +24,8 @@ export const useUserContext = () => {
 
 export const useSessionContext = () => {
   return useContext(SessionContext);
+};
+
+export const useGenreContext = () => {
+  return useContext(GenreContext);
 };

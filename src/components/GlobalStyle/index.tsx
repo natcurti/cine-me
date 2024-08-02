@@ -43,6 +43,13 @@ const GlobalStyle = createGlobalStyle`
         background-color: ${(props) => props.theme.colors.black};
     }
 
+    #root{
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
     li {
         list-style: none;
     }
