@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import { http_auth } from "src/http/http-auth";
 
 const initialValues = {
   name: "",
@@ -24,6 +25,17 @@ export const UserContextProvider = ({
   children: React.ReactNode;
 }) => {
   const [user, setUser] = useState(initialValues);
+
+  useEffect(() => {
+    http_auth.get("/users").then((response) =>
+      setUser((previous) => {
+        return {
+          ...previous,
+          name: response.data.name,
+        };
+      })
+    );
+  }, []);
 
   const setName = (name: string) => {
     setUser((previous) => {

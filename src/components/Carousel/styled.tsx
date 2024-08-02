@@ -27,7 +27,7 @@ const ButtonIconsBase = styled.button`
   border: none;
   background-color: transparent;
   cursor: pointer;
-  z-index: 10000;
+  z-index: 1000;
 `;
 
 export const ButtonIconRight = styled(ButtonIconsBase)`

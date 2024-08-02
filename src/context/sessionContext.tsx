@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { http_auth } from "src/http/http-auth";
 import { StoreToken } from "src/utils/StoreToken";
 
-interface ISessionContext {
+export interface ISessionContext {
   isLoggedIn: boolean;
   setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
   login: (_email: string, _password: string) => void;
