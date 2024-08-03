@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useMoviesContext, useTvShowContext } from "src/hooks/custom";
 import { http_tmdb } from "src/http/http-tmdb";
 import {
   ButtonIcon,
+  ContainerError,
   ContainerIcons,
   ContainerText,
   IframeStyled,
@@ -16,6 +17,8 @@ import Tags from "src/components/Tags";
 import { PiListPlusBold } from "react-icons/pi";
 import { IoShareSocial } from "react-icons/io5";
 import { LuDownload } from "react-icons/lu";
+import Button from "src/components/Button";
+import { formatDate } from "src/utils/formatDate";
 
 const StreamingDetails = () => {
   const { id } = useParams();
@@ -24,8 +27,12 @@ const StreamingDetails = () => {
   const [videoKey, setVideoKey] = useState("");
   const [url, setUrl] = useState("");
   const [streamingItem, setStreamingItem] = useState<IStreamingItem[]>([]);
+  const [error, setError] = useState(false);
   const { popularMovies } = useMoviesContext();
   const { popularTvShow } = useTvShowContext();
+  const navigate = useNavigate();
+
+  console.log(streamingItem);
 
   useEffect(() => {
     if (pathname.startsWith("/filmes")) {
@@ -33,8 +40,11 @@ const StreamingDetails = () => {
       setUrl(`/movie/${id}/videos`);
       return;
     }
-    setTypeOfStreaming("tv");
-    setUrl(`/tv/${id}/videos`);
+    if (pathname.startsWith("/series")) {
+      setTypeOfStreaming("tv");
+      setUrl(`/tv/${id}/videos`);
+      return;
+    }
   }, [pathname, id]);
 
   useEffect(() => {
@@ -42,32 +52,26 @@ const StreamingDetails = () => {
       http_tmdb
         .get(url)
         .then((response) => setVideoKey(response.data.results[0].key))
-        .catch((error) => console.log(error));
+        .catch(() => setError(true));
     }
   }, [url]);
 
   useEffect(() => {
-    if (typeOfStreaming === "movie") {
-      setStreamingItem(
-        popularMovies.filter((movie) => movie.id === Number(id))
-      );
+    if (videoKey) {
+      typeOfStreaming === "movie"
+        ? setStreamingItem(
+            popularMovies.filter((movie) => movie.id === Number(id))
+          )
+        : setStreamingItem(
+            popularTvShow.filter((serie) => serie.id === Number(id))
+          );
       return;
     }
-    setStreamingItem(popularTvShow.filter((serie) => serie.id === Number(id)));
-  }, [id, popularMovies, popularTvShow, typeOfStreaming]);
-
-  const date = new Date(streamingItem[0]?.release_date).toLocaleDateString(
-    "pt-br",
-    {
-      day: "2-digit",
-      month: "long",
-      year: "numeric",
-    }
-  );
+  }, [id, popularMovies, popularTvShow, typeOfStreaming, videoKey]);
 
   return (
-    <>
-      <MainStyled>
+    <MainStyled>
+      {!error ? (
         <div>
           <IframeStyled
             src={`https://youtube.com/embed/${videoKey}`}
@@ -76,10 +80,13 @@ const StreamingDetails = () => {
             <SectionStyled>
               <div>
                 <Typography element="h1" variant="h3">
-                  {streamingItem[0].title}
+                  {streamingItem[0].title ?? streamingItem[0].name}
                 </Typography>
                 <Typography element="h2" variant="p">
-                  Lançado em: {date}
+                  Lançado em:{" "}
+                  {streamingItem[0]?.release_date
+                    ? formatDate(streamingItem[0]?.release_date)
+                    : "Data indisponível."}
                 </Typography>
               </div>
               <Tags ids={streamingItem[0].genre_ids} />
@@ -114,8 +121,17 @@ const StreamingDetails = () => {
             </SectionStyled>
           )}
         </div>
-      </MainStyled>
-    </>
+      ) : (
+        <ContainerError>
+          <Typography element="subtitle" variant="p">
+            Não foi possível carregar as informações.
+          </Typography>
+          <Button size="sm" onClick={() => navigate("/")}>
+            Voltar
+          </Button>
+        </ContainerError>
+      )}
+    </MainStyled>
   );
 };
 

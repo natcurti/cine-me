@@ -43,3 +43,12 @@ export const ContainerText = styled.div`
     font-size: 1.5rem;
   }
 `;
+
+export const ContainerError = styled.div`
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: ${(props) => props.theme.sizes.lg};
+`;

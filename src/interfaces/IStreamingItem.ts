@@ -5,4 +5,5 @@ export interface IStreamingItem {
   poster_path: string;
   release_date: string;
   title: string;
+  name?: string;
 }
