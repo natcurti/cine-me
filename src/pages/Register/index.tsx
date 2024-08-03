@@ -64,8 +64,7 @@ const Register = () => {
     resolver: zodResolver(schema),
   });
 
-  const { setName, setLastname, setEmail, setPassword, setPasswordRepeat } =
-    useUserContext();
+  const { setUser } = useUserContext();
 
   const navigate = useNavigate();
 
@@ -75,11 +74,13 @@ const Register = () => {
   };
 
   const onSubmit = (values: FormValues) => {
-    setName(values.name);
-    setLastname(values.lastname);
-    setEmail(values.email);
-    setPassword(values.password);
-    setPasswordRepeat(values.passwordRepeat);
+    setUser({
+      name: values.name,
+      lastname: values.lastname,
+      email: values.email,
+      password: values.password,
+      passwordRepeat: values.passwordRepeat,
+    });
 
     http_auth
       .post("/users", {

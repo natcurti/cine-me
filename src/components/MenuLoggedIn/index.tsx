@@ -17,12 +17,18 @@ import { StoreToken } from "src/utils/StoreToken";
 const MenuLoggedIn = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { setIsLoggedIn } = useSessionContext();
-  const { user, setName } = useUserContext();
+  const { user, setUser } = useUserContext();
 
   const logout = () => {
     StoreToken.deleteToken();
     setIsLoggedIn(false);
-    setName("");
+    setUser({
+      name: "",
+      lastname: "",
+      email: "",
+      password: "",
+      passwordRepeat: "",
+    });
   };
 
   return (
