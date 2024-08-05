@@ -22,6 +22,7 @@ import { LuDownload } from "react-icons/lu";
 import Button from "src/components/Button";
 import { formatDate } from "src/utils/formatDate";
 import Card from "src/components/Card";
+import { useSessionContext } from "src/hooks/custom";
 
 const StreamingDetails = () => {
   const { id } = useParams();
@@ -33,8 +34,13 @@ const StreamingDetails = () => {
   const [recommendations, setRecommendations] = useState<IStreamingItem[]>([]);
   const [error, setError] = useState(false);
   const navigate = useNavigate();
+  const { isLoggedIn } = useSessionContext();
 
-  console.log(streamingItem);
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/login");
+    }
+  }, [isLoggedIn, navigate]);
 
   useEffect(() => {
     if (pathname.startsWith("/filmes")) {

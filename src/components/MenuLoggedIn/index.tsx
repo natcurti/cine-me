@@ -11,17 +11,19 @@ import {
 import { useState } from "react";
 import { useSessionContext, useUserContext } from "src/hooks/custom";
 import Typography from "../Typography";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { StoreToken } from "src/utils/StoreToken";
 
 const MenuLoggedIn = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { setIsLoggedIn } = useSessionContext();
   const { user, setUser } = useUserContext();
+  const navigate = useNavigate();
 
   const logout = () => {
     StoreToken.deleteToken();
     setIsLoggedIn(false);
+    navigate("/");
     setUser({
       name: "",
       lastname: "",
