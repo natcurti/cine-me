@@ -17,7 +17,7 @@ const Carousel = ({
   type,
 }: {
   items: IStreamingItem[];
-  type: "movie" | "serie";
+  type: "movie" | "tv" | undefined;
 }) => {
   const carouselContainer = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);

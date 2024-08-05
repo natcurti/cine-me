@@ -7,7 +7,7 @@ const Card = ({
   type,
 }: {
   itemToShow: IStreamingItem;
-  type: "movie" | "serie";
+  type: "movie" | "tv" | undefined;
 }) => {
   const image = import.meta.env.VITE_BASE_URL_IMAGES;
 

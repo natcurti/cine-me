@@ -1,12 +1,33 @@
 import { useGenreContext } from "src/hooks/custom";
 import { TagsContainer, TagSyled } from "./styled";
+import { useEffect, useState } from "react";
+import { IGenre } from "src/interfaces/IGenre";
 
-const Tags = ({ ids }: { ids: number[] }) => {
+interface ITags {
+  genresIds?: number[];
+  genres?: {
+    id: number;
+    name: string;
+  }[];
+}
+
+const Tags = ({ genresIds, genres }: ITags) => {
   const { moviesGenres } = useGenreContext();
+  const [tagsToShow, setTagsToShow] = useState<IGenre[]>([]);
 
-  const tagsToShow = ids
-    .map((id) => moviesGenres.filter((genre) => genre.id === id))
-    .flat();
+  useEffect(() => {
+    if (genresIds) {
+      setTagsToShow(
+        genresIds
+          .map((id) => moviesGenres.filter((genre) => genre.id === id))
+          .flat()
+      );
+    }
+
+    if (genres) {
+      setTagsToShow(genres);
+    }
+  }, [genresIds, moviesGenres, genres]);
 
   return (
     <TagsContainer>
