@@ -1,9 +1,15 @@
 import styled from "styled-components";
 
-export const HeaderStyled = styled.header`
+export const HeaderStyled = styled.header<{ $isLoggedIn: boolean }>`
   height: 28rem;
   width: 100%;
-  background-image: url("/background-cineme.jpg");
+  background-image: ${(props) =>
+    props.$isLoggedIn
+      ? `url("/wallpaper.jpg")`
+      : `url("/background-cineme.jpg")`};
+  background-size: ${(props) => props.$isLoggedIn && "300%"};
+  background-position: ${(props) => props.$isLoggedIn && "center"};
+  background-repeat: no-repeat;
   position: relative;
 
   &::after {
@@ -18,8 +24,12 @@ export const HeaderStyled = styled.header`
     z-index: 1;
   }
 
+  @media (min-width: 540px) {
+    background-size: ${(props) => props.$isLoggedIn && "200%"};
+  }
+
   @media (min-width: 768px) {
-    height: 33rem;
+    background-size: ${(props) => props.$isLoggedIn && "100%"};
   }
 `;
 
@@ -38,5 +48,30 @@ export const TypographyContainer = styled.div`
 
   @media (min-width: 768px) {
     padding: 10.5rem 3rem;
+  }
+`;
+
+export const LogoContainer = styled.h1`
+  z-index: 100;
+  width: 12.5rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  img {
+    width: 100%;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: ${(props) => props.theme.sizes.md};
+  }
+
+  @media (min-width: 768px) {
+    width: 15rem;
+    left: 3rem;
+    transform: none;
+    bottom: 3rem;
   }
 `;
