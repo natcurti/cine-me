@@ -14,7 +14,7 @@ const HeaderContainer = () => {
       {isLoggedIn ? (
         <LogoContainer>
           <img src={logo} alt="Série House of Dragons" />
-          <Typography element="h2" variant="p">
+          <Typography element="h1" variant="p">
             Temporada completa! Volte a Westeros e maratone a série favorita dos
             fãs, que tem de tudo, menos paz.
           </Typography>

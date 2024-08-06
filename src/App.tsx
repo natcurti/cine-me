@@ -12,6 +12,7 @@ import { UserContextProvider } from "./context/userContext";
 import { SessionProvider } from "./context/sessionContext";
 import GenreProvider from "./context/genreContext";
 import StreamingDetails from "./pages/StreamingDetails";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
                           path="/series/:id"
                           element={<StreamingDetails />}
                         />
+                        <Route path="*" element={<NotFound />} />
                       </Route>
                       <Route path="/cadastro" element={<Register />} />
                       <Route path="/login" element={<Login />} />

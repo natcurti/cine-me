@@ -29,6 +29,7 @@ export const HeaderStyled = styled.header<{ $isLoggedIn: boolean }>`
   }
 
   @media (min-width: 768px) {
+    height: ${(props) => !props.$isLoggedIn && "35rem"};
     background-size: ${(props) => props.$isLoggedIn && "100%"};
   }
 `;
@@ -51,7 +52,7 @@ export const TypographyContainer = styled.div`
   }
 `;
 
-export const LogoContainer = styled.h1`
+export const LogoContainer = styled.section`
   z-index: 100;
   width: 12.5rem;
   position: absolute;
@@ -63,7 +64,7 @@ export const LogoContainer = styled.h1`
     width: 100%;
   }
 
-  h2 {
+  h1 {
     text-align: center;
     margin-bottom: ${(props) => props.theme.sizes.md};
   }

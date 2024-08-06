@@ -63,7 +63,7 @@ const StreamingDetails = () => {
         .catch(() => setError(true));
 
       http_tmdb
-        .get(`${url}`)
+        .get(`${url}?language=pt-BR`)
         .then((response) => setStreamingItem(response.data))
         .catch(() => setError(true));
 

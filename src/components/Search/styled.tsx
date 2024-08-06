@@ -17,17 +17,22 @@ export const ContainerStyled = styled.div`
 export const InputStyled = styled.input`
   width: 6.25rem;
   padding: 0.25rem;
+  color: ${(props) => props.theme.colors.black};
 
   &:focus {
     outline-color: ${(props) => props.theme.colors.blue};
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 540px) {
     width: 10rem;
   }
 
-  @media (min-width: 992px) {
+  @media (min-width: 768px) {
     width: 14rem;
+  }
+
+  @media (min-width: 992px) {
+    width: 18rem;
   }
 `;
 
