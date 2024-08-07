@@ -30,13 +30,17 @@ export const ContainerMenu = styled.div<{ $isOpen: boolean }>`
 
 export const HeaderMenu = styled.header`
   background-color: ${(props) => props.theme.colors.black};
-  margin-bottom: ${(props) => props.theme.sizes.md} 0;
   padding: ${(props) => props.theme.sizes.md};
   display: flex;
   align-items: center;
   gap: ${(props) => props.theme.sizes.sm};
   height: 4rem;
   z-index: 1000;
+
+  div {
+    display: grid;
+    place-items: center;
+  }
 `;
 
 export const ListItemStyled = styled.li`

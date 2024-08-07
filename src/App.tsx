@@ -13,6 +13,7 @@ import { SessionProvider } from "./context/sessionContext";
 import GenreProvider from "./context/genreContext";
 import StreamingDetails from "./pages/StreamingDetails";
 import NotFound from "./pages/NotFound";
+import ListItems from "./pages/ListItems";
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
                     <Routes>
                       <Route path="/" element={<DefaultPage />}>
                         <Route index element={<Home />} />
+                        <Route path="/filmes" element={<ListItems />} />
+                        <Route path="/series" element={<ListItems />} />
                         <Route
                           path="/filmes/:id"
                           element={<StreamingDetails />}

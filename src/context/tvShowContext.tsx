@@ -20,11 +20,13 @@ export const TvShowProvider = ({ children }: ITvShowProvider) => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    http_tmdb
-      .get("/tv/popular?language=pt-BR")
-      .then((response) => setPopularTvShow(response.data.results))
-      .catch((error) => setError(error.message))
-      .finally(() => setIsLoading(false));
+    setTimeout(() => {
+      http_tmdb
+        .get("/tv/popular?language=pt-BR")
+        .then((response) => setPopularTvShow(response.data.results))
+        .catch((error) => setError(error.message))
+        .finally(() => setIsLoading(false));
+    }, 3000);
   }, []);
 
   return (

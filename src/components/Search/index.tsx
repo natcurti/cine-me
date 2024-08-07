@@ -7,13 +7,14 @@ import {
   LabelStyled,
   LabelTitle,
 } from "./styled";
-import { useMoviesContext } from "src/hooks/custom";
+import { useMoviesContext, useTvShowContext } from "src/hooks/custom";
 import { useNavigate } from "react-router-dom";
 
 const Search = () => {
   const [showInput, setShowInput] = useState(false);
   const [value, setValue] = useState("");
   const { popularMovies } = useMoviesContext();
+  const { popularTvShow } = useTvShowContext();
   const navigate = useNavigate();
 
   const handleSearch = () => {
@@ -25,7 +26,15 @@ const Search = () => {
         navigate(`/filmes/${movie[0].id}`);
       }
       if (movie.length === 0) {
-        navigate(`/page-404`);
+        const serie = popularTvShow.filter((serie) =>
+          serie.name?.toLowerCase().includes(value.toLowerCase())
+        );
+        if (serie.length > 0) {
+          navigate(`/series/${serie[0].id}`);
+        }
+        if (serie.length === 0) {
+          navigate(`/page-404`);
+        }
       }
       setValue("");
     }

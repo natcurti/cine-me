@@ -41,7 +41,9 @@ const MenuLoggedIn = () => {
       <ContainerBackdrop onClick={() => setIsOpen(!isOpen)} $isOpen={isOpen}>
         <ContainerMenu $isOpen={isOpen}>
           <HeaderMenu>
-            <FaUserCircle size={30} />
+            <div>
+              <FaUserCircle size={30} />
+            </div>
             <Typography element="h4" variant="h4">
               {user.name}
             </Typography>

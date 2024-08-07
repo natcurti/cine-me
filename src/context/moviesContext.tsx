@@ -20,11 +20,13 @@ export const MoviesProvider = ({ children }: IMoviesProvider) => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    http_tmdb
-      .get("/movie/popular?language=pt-BR&include_videos=true")
-      .then((response) => setPopularMovies(response.data.results))
-      .catch((error) => setError(error.message))
-      .finally(() => setIsLoading(false));
+    setTimeout(() => {
+      http_tmdb
+        .get("/movie/popular?language=pt-BR&include_videos=true")
+        .then((response) => setPopularMovies(response.data.results))
+        .catch((error) => setError(error.message))
+        .finally(() => setIsLoading(false));
+    }, 3000);
   }, []);
 
   return (
