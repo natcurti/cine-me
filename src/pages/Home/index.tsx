@@ -44,7 +44,7 @@ const Home = () => {
                 </Typography>
               )}
             </Section>
-            <Section items={popularTvShow} type="serie">
+            <Section items={popularTvShow} type="tv">
               <Typography element="h3" variant="h3">
                 Séries para você
               </Typography>
