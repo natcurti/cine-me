@@ -14,6 +14,8 @@ import GenreProvider from "./context/genreContext";
 import StreamingDetails from "./pages/StreamingDetails";
 import NotFound from "./pages/NotFound";
 import ListItems from "./pages/ListItems";
+import SearchPage from "./pages/Search";
+import { SearchProvider } from "./context/searchContext";
 
 function App() {
   return (
@@ -26,24 +28,27 @@ function App() {
               <UserContextProvider>
                 <SessionProvider>
                   <GenreProvider>
-                    <Routes>
-                      <Route path="/" element={<DefaultPage />}>
-                        <Route index element={<Home />} />
-                        <Route path="/filmes" element={<ListItems />} />
-                        <Route path="/series" element={<ListItems />} />
-                        <Route
-                          path="/filmes/:id"
-                          element={<StreamingDetails />}
-                        />
-                        <Route
-                          path="/series/:id"
-                          element={<StreamingDetails />}
-                        />
-                        <Route path="*" element={<NotFound />} />
-                      </Route>
-                      <Route path="/cadastro" element={<Register />} />
-                      <Route path="/login" element={<Login />} />
-                    </Routes>
+                    <SearchProvider>
+                      <Routes>
+                        <Route path="/" element={<DefaultPage />}>
+                          <Route index element={<Home />} />
+                          <Route path="/filmes" element={<ListItems />} />
+                          <Route path="/series" element={<ListItems />} />
+                          <Route
+                            path="/filmes/:id"
+                            element={<StreamingDetails />}
+                          />
+                          <Route
+                            path="/series/:id"
+                            element={<StreamingDetails />}
+                          />
+                          <Route path="/resultados" element={<SearchPage />} />
+                          <Route path="*" element={<NotFound />} />
+                        </Route>
+                        <Route path="/cadastro" element={<Register />} />
+                        <Route path="/login" element={<Login />} />
+                      </Routes>
+                    </SearchProvider>
                   </GenreProvider>
                 </SessionProvider>
               </UserContextProvider>
