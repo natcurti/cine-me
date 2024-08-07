@@ -142,6 +142,11 @@ const StreamingDetails = () => {
                     />
                   ))}
                 </ContainerCards>
+                {recommendations.length === 0 && (
+                  <Typography element="p1" variant="h4">
+                    Não encontramos resultados relacionados.
+                  </Typography>
+                )}
               </SectionMoviesToYou>
             </Container>
           )}
