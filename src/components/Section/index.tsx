@@ -8,7 +8,7 @@ const Section = ({
   children,
 }: {
   items: IStreamingItem[];
-  type: "movie" | "serie";
+  type: "movie" | "tv" | undefined;
   children: React.ReactNode;
 }) => {
   return (
