@@ -35,13 +35,16 @@ const ListItems = () => {
             Não foi possível carregar a lista de séries.
           </Typography>
         )}
-        {pathname === "/filmes"
-          ? popularMovies.map((movie) => (
-              <Card key={movie.id} itemToShow={movie} type="movie" />
-            ))
-          : popularTvShow.map((serie) => (
-              <Card key={serie.id} itemToShow={serie} type="tv" />
-            ))}
+        {pathname === "/filmes" &&
+          !errorMovies &&
+          popularMovies.map((movie) => (
+            <Card key={movie.id} itemToShow={movie} type="movie" />
+          ))}
+        {pathname === "/series" &&
+          !errorSeries &&
+          popularTvShow.map((serie) => (
+            <Card key={serie.id} itemToShow={serie} type="tv" />
+          ))}
       </ContainerCards>
     </MainContainer>
   );
