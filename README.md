@@ -11,6 +11,7 @@ Para construção desse projeto foram utilizados:
 - Context API
 - Styled Components
 - Autenticação com JWT
+- React Hook Forms
 
 ## 🚀 Instalação
 
