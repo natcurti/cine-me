@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { SearchIcon } from "../Icons";
 import {
   ButtonSearch,
@@ -42,4 +42,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default memo(Search);

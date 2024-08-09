@@ -9,7 +9,7 @@ import {
   MdKeyboardArrowRight,
 } from "react-icons/md";
 import Card from "../Card";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IStreamingItem } from "src/interfaces/IStreamingItem";
 
 const Carousel = ({
@@ -21,9 +21,18 @@ const Carousel = ({
 }) => {
   const carouselContainer = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
+  const [showNext, setShowNext] = useState(true);
   const iconProps = {
     size: "40",
   };
+
+  useEffect(() => {
+    if (carouselContainer.current?.scrollWidth) {
+      if (width > carouselContainer.current?.scrollWidth) {
+        setShowNext(false);
+      }
+    }
+  }, [width]);
 
   const prevCards = () => {
     if (carouselContainer.current && width > 0) {
@@ -53,9 +62,11 @@ const Carousel = ({
           <Card itemToShow={itemToShow} key={itemToShow.id} type={type} />
         ))}
       </ContainerCards>
-      <ButtonIconRight onClick={nextCards}>
-        <MdKeyboardArrowRight {...iconProps} />
-      </ButtonIconRight>
+      {showNext && (
+        <ButtonIconRight onClick={nextCards}>
+          <MdKeyboardArrowRight {...iconProps} />
+        </ButtonIconRight>
+      )}
     </CarouselContainer>
   );
 };

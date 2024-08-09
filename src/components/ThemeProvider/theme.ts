@@ -2,21 +2,15 @@ export const theme = {
   colors: {
     red: "#F41B3B",
     darkRed: "#ba041f",
-    green: "#1EBC99",
     blue: "#1884F7",
-    yellow: "#F9CC0D",
     black: "#0A070B",
     darkGray: "#363536",
     mediumGray: "#4F4E50",
-    lightGray: "#E8ECEF",
     white: "#FFF",
   },
   fontFamily: {
-    light: "'GilroyLight', 'sans-serif",
     regular: "'GilroyRegular', 'sans-serif",
-    medium: "'GilroyMedium', 'sans-serif",
     bold: "'GilroyBold', 'sans-serif'",
-    extraBold: "'GilroyExtraBold', 'sans-serif'",
   },
   sizes: {
     xs: "0.5rem",

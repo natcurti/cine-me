@@ -17,7 +17,7 @@ const elements = {
 
 const styles = {
   h1: {
-    fontFamily: "GilroyExtraBold",
+    fontFamily: "GilroyBold",
     fontSize: "2.25rem",
     lineHeight: "2.5rem",
   },
@@ -27,7 +27,7 @@ const styles = {
     lineHeight: "2rem",
   },
   h3: {
-    fontFamily: "GilroyMedium",
+    fontFamily: "GilroyBold",
     fontSize: "1.5rem",
     lineHeight: "2rem",
   },
@@ -42,7 +42,7 @@ const styles = {
     lineHeight: "1.5rem",
   },
   p: {
-    fontFamily: "GilroyLight",
+    fontFamily: "GilroyRegular",
     fontSize: "0.85rem",
     lineHeight: "1rem",
   },
