@@ -32,3 +32,15 @@ Inicie também o servidor da api de autenticação com o comando:
 ```
 npm run api-auth
 ```
+
+## 🛠️ Variáveis de Ambiente
+
+Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de ambiente no seu .env:
+
+VITE_API_KEY
+
+É preciso usar a sua chave da API TMDB.
+
+## 👇 Confira o projeto pelo link:
+
+https://cine-me-khaki.vercel.app/

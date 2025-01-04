@@ -9,9 +9,8 @@ const Card = ({
   itemToShow: IStreamingItem;
   type: "movie" | "tv" | undefined;
 }) => {
-  const image = import.meta.env.VITE_BASE_URL_IMAGES;
-
-  const imgPath = `${image}${itemToShow.poster_path}`;
+  const imgUrlBase = "https://image.tmdb.org/t/p/w342";
+  const imgPath = `${imgUrlBase}${itemToShow.poster_path}`;
 
   return (
     <>
